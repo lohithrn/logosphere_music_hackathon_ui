@@ -1,0 +1,52 @@
+<div class="page-background">
+    <img
+    class="logo-img m-3"
+    src="../../../assets/images/icons/logo.png"
+    alt="logo"
+  />
+<div class="row p-4 justify-content-center">
+  <div class="col-8">
+    <div class="card blur-effect py-3">
+      <div class="col-12 row upload-img-section p-1">
+        <div class="col-6">
+          <img
+            class="upload-img float-end"
+            [src]="file_url"
+            alt="upload image"
+          />
+        </div>
+        <div class="col-6 my-3">
+          <h5 class="text-danger">Upload Album Image</h5>
+          <input
+            type="file"
+            class="mt-2"
+            name="fileInput"
+            id="fileInput"
+            accept="image/jpeg,image/png"
+            (change)="selectFiles($event)"
+          />
+        </div>
+      </div>
+      <div class="row upload-form-section px-4">
+        <div class="col-6 py-2">
+          <h6 class="text-primary">Enter Album Name</h6>
+          <input type="text" name="album_name" [(ngModel)]="album_name" class="w-100 form-control" />
+        </div>
+        <div class="col-6 py-2">
+          <h6 class="text-primary">Enter Artist Name</h6>
+          <input type="text" name="artist_name" class="w-100 form-control" />
+        </div>
+
+        <div class="col-12 mb-3 mt-2 py-3 dynamic-sec">
+            <h5 class="text-danger mb-3">Add Dynamic Fields</h5>
+          <app-input-list></app-input-list>
+        </div>
+
+        <div class="col-12 text-center">
+            <button class="btn btn-warning" (click)="onSubmit()">Add Album</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,48 @@
+<div [formGroup]="myForm" style="margin-left: auto; margin-right: 0">
+	<ng-container 
+	formArrayName="emails">
+	<div
+		class="container-fluid p-0"
+		*ngFor="let d of getEmailsControls(); let i = index; let lastElement = last"
+	>
+		<div class="p-0" [formGroupName]="i">
+			<div class="form-group">
+				<div class="row mb-3">
+					<div class="col-5 pr-0">
+						<h6 class="text-primary">Add Field Name</h6>
+						<input
+							type="text"
+							class="form-control"
+							[formControlName]="'key'"
+							(change)="change($event)"
+						/>
+					</div>
+					<div class="col-5 pr-0">
+						<h6 class="text-primary">Add Field Value</h6>
+						<input
+							type="text"
+							class="form-control"
+							[formControlName]="'value'"
+							(change)="change($event)"
+						/>
+					</div>
+					<div class="col-2 p-0 d-flex justify-content-end h-100"  *ngIf="!lastElement">
+						<button
+							type="button"
+							class="btn btn-danger mt-4"  
+							(click)="onRemoveSlot(i)"
+						>
+							<i class="fa fa-minus"></i>
+						</button>
+					</div>
+					<div class="col-2 p-0 d-flex justify-content-end h-100"  *ngIf="lastElement">
+						<button type="button" class="btn btn-primary mt-4" (click)="onAddNewEmail()">
+							<i class="fa fa-plus"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-container>
+</div>
